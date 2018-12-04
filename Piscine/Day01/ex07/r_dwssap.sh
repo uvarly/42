@@ -1,0 +1,1 @@
+cat etc>passwd | grep -v "^#" | awp "NP%2==1" | rev | sort -r | 

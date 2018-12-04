@@ -1,0 +1,1 @@
+ldapsearch uid="z*" | grep -i cn | sort -r
