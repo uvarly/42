@@ -6,13 +6,13 @@
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 13:00:21 by uvarly            #+#    #+#             */
-/*   Updated: 2018/11/30 13:06:46 by uvarly           ###   ########.fr       */
+/*   Updated: 2018/12/04 15:30:09 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *dst, const char *app, size_t n)
+char			*ft_strncat(char *dst, const char *app, size_t n)
 {
 	char		*c_dst;
 	const char	*c_app;

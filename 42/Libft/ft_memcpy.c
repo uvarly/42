@@ -6,9 +6,11 @@
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 15:02:40 by uvarly            #+#    #+#             */
-/*   Updated: 2018/11/29 17:10:54 by uvarly           ###   ########.fr       */
+/*   Updated: 2018/12/05 11:54:11 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

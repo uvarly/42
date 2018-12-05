@@ -6,9 +6,11 @@
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 11:11:14 by uvarly            #+#    #+#             */
-/*   Updated: 2018/11/30 12:17:37 by uvarly           ###   ########.fr       */
+/*   Updated: 2018/12/04 15:30:27 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strncpy(char *dst, const char *src, size_t len)
 {

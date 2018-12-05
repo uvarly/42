@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_strcat.c                                      :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/04 12:53:28 by uvarly            #+#    #+#             */
-/*   Updated: 2018/12/04 13:00:00 by uvarly           ###   ########.fr       */
+/*   Created: 2018/12/05 12:22:20 by uvarly            #+#    #+#             */
+/*   Updated: 2018/12/05 12:32:08 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int main(void)
+void	*ft_memalloc(size_t size)
 {
-	char	s1[10] = "yo,";
-	char	s2[10] = "\t wassup?";
+	unsigned char	*ptr;
 
-	printf("%s\n", ft_strcat(s1, s2));
-	printf("%s", s1);
-	return(0);
+	ptr = malloc(size);
+	if (!ptr)
+		return (0);
+	ft_bzero(ptr, size);
+	return (ptr);
 }

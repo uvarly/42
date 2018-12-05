@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/29 13:27:26 by uvarly            #+#    #+#             */
-/*   Updated: 2018/12/05 11:58:39 by uvarly           ###   ########.fr       */
+/*   Created: 2018/12/05 13:32:21 by uvarly            #+#    #+#             */
+/*   Updated: 2018/12/05 13:47:53 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	unsigned char		*c_dst;
-	const unsigned char	*c_src;
-	int					delta;
+	char	*str;
+	size_t	i;
 
-	c_dst = (unsigned char *)dst;
-	c_src = (const unsigned char *)src;
-	if (dst < src)
-		delta = 1;
-	else if (dst > src)
+	str = (char *)s;
+	str = ft_strnew(len);
+	if (!str)
+		return (0);
+	i = 0;
+	while (len > 0)
 	{
-		delta = -1;
-		c_dst += (n - 1);
-		c_src += (n - 1);
+		str[i] = s[start + i];
+		i++;
+		len--;
 	}
-	else
-		return (dst);
-	while (n > 0)
-	{
-		*c_dst = *c_src;
-		c_dst += delta;
-		c_src += delta;
-		n--;
-	}
-	return (dst);
+	return (str);
 }

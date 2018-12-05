@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_bzero.c                                       :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/04 12:09:17 by uvarly            #+#    #+#             */
-/*   Updated: 2018/12/04 12:16:07 by uvarly           ###   ########.fr       */
+/*   Created: 2018/12/05 13:23:17 by uvarly            #+#    #+#             */
+/*   Updated: 2018/12/05 13:28:51 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_bzero(void *dest, size_t n);
-
-int	main(void)
+int	ft_strequ(char const *s1, char const *s2)
 {
-	char	str[10] = "0123456789";
-	ft_bzero(str, 5);
-	for (int i = 0; i < 10; i++)
-		if (str[i] != 0 && i < 5)
-			write(1, "Error: not all bytes were set to zeroes within \
-					specified range");
+	return (ft_strcmp(s1, s2) ? 0 : 1);
 }

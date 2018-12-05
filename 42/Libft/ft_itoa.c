@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/29 13:27:26 by uvarly            #+#    #+#             */
-/*   Updated: 2018/12/05 11:58:39 by uvarly           ###   ########.fr       */
+/*   Created: 2018/12/05 15:56:55 by uvarly            #+#    #+#             */
+/*   Updated: 2018/12/05 16:25:59 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+static int	ft_numlen(int n)
 {
-	unsigned char		*c_dst;
-	const unsigned char	*c_src;
-	int					delta;
+	if (n > -10 && n < 10)
+		return (1);
+	if (n != 0)
+		return (1 + ft_numlen(n / 10));
+}
 
-	c_dst = (unsigned char *)dst;
-	c_src = (const unsigned char *)src;
-	if (dst < src)
-		delta = 1;
-	else if (dst > src)
+char		*ft_itoa(int n)
+{
+	char	*str;
+	size_t	len;
+	int		sign;
+
+	len = ft_numlen(n);
+	sign = (n < 0) ? 1 : 0;
+	str = ft_strnew(sign + len);
+	if (!str)
+		return (0);
+	while (len > 0)
 	{
-		delta = -1;
-		c_dst += (n - 1);
-		c_src += (n - 1);
+		str[sign + len - 1] = (sign) ? ((n % 10) * -1 + '0') : (n % 10 + '0');
+		n /= 10;
+		len--;
 	}
-	else
-		return (dst);
-	while (n > 0)
-	{
-		*c_dst = *c_src;
-		c_dst += delta;
-		c_src += delta;
-		n--;
-	}
-	return (dst);
+	if (sign)
+		str[0] = '-';
+	return (str);
 }
