@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_lstpushfront.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/05 17:35:24 by uvarly            #+#    #+#             */
-/*   Updated: 2018/12/06 17:49:43 by uvarly           ###   ########.fr       */
+/*   Created: 2018/12/06 12:51:46 by uvarly            #+#    #+#             */
+/*   Updated: 2018/12/06 13:04:28 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
-
-typedef struct	s_list
+void	ft_listpushfront(t_list **alst, void *content, size_t content_size)
 {
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}				t_list;
+	t_list	*new;
 
-
-
-#endif
+	if (*alst)
+	{
+		new = ft_lstnew(content, content_size);
+		new->next = *alst;
+		*alst = new;
+	}
+	else
+		*alst = ft_lstnew(content, content_size);
+}

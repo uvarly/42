@@ -6,7 +6,7 @@
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:37:31 by uvarly            #+#    #+#             */
-/*   Updated: 2018/12/05 16:36:58 by uvarly           ###   ########.fr       */
+/*   Updated: 2018/12/06 17:59:01 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,11 @@ static void	ft_fillword(char *dst, char *src, int start, size_t len)
 	}
 }
 
+static void	ft_free(***ar)
+{
+	
+}
+
 char		**ft_strsplit(char const *s, char c)
 {
 	char	**new_arr;
@@ -70,7 +75,10 @@ char		**ft_strsplit(char const *s, char c)
 		while (s[j] && s[j] == c)
 			j++;
 		if (!(new_arr[i] = ft_strnew(ft_countchars((char *)&s[j], c))))
+		{
+			ft_free(&new_arr);
 			return (0);
+		}
 		ft_fillword(new_arr[i], (char *)s, j, ft_countchars((char *)&s[j], c));
 		while (s[j] && s[j] != c)
 			j++;
