@@ -6,7 +6,7 @@
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 15:56:55 by uvarly            #+#    #+#             */
-/*   Updated: 2018/12/05 16:25:59 by uvarly           ###   ########.fr       */
+/*   Updated: 2018/12/07 12:10:52 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,17 @@
 
 static int	ft_numlen(int n)
 {
+	int count;
+
+	count = 1;
 	if (n > -10 && n < 10)
-		return (1);
-	if (n != 0)
-		return (1 + ft_numlen(n / 10));
+		return (count);
+	while (n > 9 || n < -9)
+	{
+		n /= 10;
+		count++;
+	}
+	return (count);
 }
 
 char		*ft_itoa(int n)

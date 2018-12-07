@@ -6,15 +6,17 @@
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 17:06:53 by uvarly            #+#    #+#             */
-/*   Updated: 2018/12/05 17:10:13 by uvarly           ###   ########.fr       */
+/*   Updated: 2018/12/07 13:58:30 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_putstr_fd(char const *s, int fd)
 {
-	while ((char *)s)
+	while (*s)
 	{
-		ft_putchar_fd(*s);
-		(char *)s++;
+		ft_putchar_fd(*s, fd);
+		s++;
 	}
 }

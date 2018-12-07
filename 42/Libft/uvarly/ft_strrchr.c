@@ -6,24 +6,24 @@
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 14:50:05 by uvarly            #+#    #+#             */
-/*   Updated: 2018/12/04 16:23:11 by uvarly           ###   ########.fr       */
+/*   Updated: 2018/12/07 13:50:47 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*c_s;
+	char	*str;
 	char	*bgn;
 
-	c_s = (char *)s;
+	str = (char *)s;
 	bgn = (char *)s;
-	while (*c_s)
-		c_s++;
-	while (c_s > bgn)
+	while (*str)
+		str++;
+	while (str >= bgn)
 	{
-		if (*c_s == c)
-			return (c_s);
-		c_s--;
+		if (*str == (unsigned char)c)
+			return (str);
+		str--;
 	}
 	return (0);
 }

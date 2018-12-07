@@ -6,7 +6,7 @@
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 13:06:49 by uvarly            #+#    #+#             */
-/*   Updated: 2018/12/05 11:46:41 by uvarly           ###   ########.fr       */
+/*   Updated: 2018/12/07 13:35:05 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 size_t	ft_strlcat(char *dst, const char *app, size_t size)
 {
-	char	*c_dst;
-	char	*c_app;
+	char	*d;
+	char	*a;
 	size_t	len;
 
-	c_dst = (char *)dst;
-	c_app = (char *)app;
-	len = ft_strlen(dst);
+	len = strlen(dst);
 	if (len >= size)
-		return (size + ft_strlen(app));
-	c_dst += len;
+		return (size + strlen(app));
+	d = (char *)dst;
+	a = (char *)app;
+	d += len;
 	size -= len;
-	while (*c_app && size > 1)
+	while (*a && size > 1)
 	{
-		*c_dst = *c_app;
-		c_dst++;
-		c_app++;
+		*d = *a;
+		d++;
+		a++;
 		size--;
 	}
-	*c_dst = 0;
-	return (ft_strlen(dst));
+	*d = 0;
+	return (strlen(dst) + strlen(a));
 }

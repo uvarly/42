@@ -6,7 +6,7 @@
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 13:36:45 by uvarly            #+#    #+#             */
-/*   Updated: 2018/12/05 11:57:53 by uvarly           ###   ########.fr       */
+/*   Updated: 2018/12/07 13:03:01 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memchr(const void *arr, int c, size_t n)
 	str = (unsigned char *)arr;
 	while (n > 0)
 	{
-		if (*str == c)
+		if (*str == (unsigned char)c)
 			return (str);
 		str++;
 		n--;

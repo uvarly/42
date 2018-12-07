@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstpushback.c                                   :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 12:49:41 by uvarly            #+#    #+#             */
-/*   Updated: 2018/12/07 14:35:09 by uvarly           ###   ########.fr       */
+/*   Created: 2018/12/06 11:08:10 by uvarly            #+#    #+#             */
+/*   Updated: 2018/12/06 11:28:01 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstpushback(t_list **alst, void *content, size_t content_size)
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	t_list	*new;
-
-	if (*alst)
+	if (alst || *alst)
 	{
-		new = *alst;
-		while (new->next)
-			new = new->next;
-		new->next = ft_lstnew(content, content_size);
+		del((*alst)->content, (*alst)->content_size);
+		free(*alst);
+		*alst = 0;
 	}
-	else
-		*alst = ft_lstnew(content, content_size);
 }

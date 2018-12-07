@@ -6,16 +6,13 @@
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 17:50:56 by uvarly            #+#    #+#             */
-/*   Updated: 2018/12/04 16:41:34 by uvarly           ###   ########.fr       */
+/*   Updated: 2018/12/07 13:52:05 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
-	unsigned char ch;
-
-	ch = c;
-	if (ch >= 'A' && ch <= 'Z')
-		return (ch + 32);
-	return (ch);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }

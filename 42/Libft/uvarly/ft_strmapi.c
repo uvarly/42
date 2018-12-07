@@ -6,7 +6,7 @@
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 13:19:47 by uvarly            #+#    #+#             */
-/*   Updated: 2018/12/05 13:23:04 by uvarly           ###   ########.fr       */
+/*   Updated: 2018/12/07 12:28:40 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	while (s[i])
 	{
-		str[i] = f(i, &s[i]);
+		str[i] = f(i, s[i]);
 		i++;
 	}
 	return (str);

@@ -6,47 +6,29 @@
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 14:00:36 by uvarly            #+#    #+#             */
-/*   Updated: 2018/12/05 14:37:16 by uvarly           ###   ########.fr       */
+/*   Updated: 2018/12/07 14:29:40 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count(char *s)
-{
-	size_t	count;
-
-	count = 0;
-	while (*s)
-	{
-		if (*s != ' ' && *s != '\n' && *s != '\t')
-			count++;
-		s++;
-	}
-	return (count);
-}
-
 char		*ft_strtrim(char const *s)
 {
-	char	*dst;
-	char	*src;
-	size_t	len;
-	size_t	i;
+	char			*str;
+	unsigned int	start;
+	unsigned int	end;
 
-	len = ft_count((char *)s);
-	dst = ft_strnew(len);
-	if (!dst)
-		return (0);
-	src = (char *)s;
-	i = 0;
-	while (*src)
-	{
-		if (*src != ' ' && *src != '\n' && *src != '\t')
-		{
-			dst[i] = *src;
-			i++;
-		}
-		src++;
-	}
-	return (dst);
+	str = (char *)s;
+	while (*str == ' ' || *str == '\n' || *str == '\t')
+		str++;
+	if (!*str)
+		return (ft_strnew(0));
+	start = str - s;
+	while (*str)
+		str++;
+	str--;
+	while (*str == ' ' || *str == '\n' || *str == '\t')
+		str--;
+	end = str - s;
+	return (ft_strsub(s, start, end - start + 1));
 }

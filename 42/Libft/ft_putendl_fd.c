@@ -6,7 +6,7 @@
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 17:10:24 by uvarly            #+#    #+#             */
-/*   Updated: 2018/12/05 17:11:24 by uvarly           ###   ########.fr       */
+/*   Updated: 2018/12/07 13:58:48 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_putendl_fd(char const *s, int fd)
 {
-	ft_putstr_fd(s);
-	ft_putchar_fd('\n');
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
