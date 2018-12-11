@@ -6,7 +6,7 @@
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 17:18:33 by uvarly            #+#    #+#             */
-/*   Updated: 2018/11/27 12:20:23 by uvarly           ###   ########.fr       */
+/*   Updated: 2018/11/27 13:09:11 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	ft_putstr(char *str)
 void	ft_print_error(int ac)
 {
 	if (ac == 1)
-		write(2, "File name missing.", 18);
+		write(2, "File name missing.\n", 19);
 	if (ac > 2)
-		write(2, "Too many arguments.", 19);
+		write(2, "Too many arguments.\n", 20);
 }
 
 int		main(int argc, char **argv)

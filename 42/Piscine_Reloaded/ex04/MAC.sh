@@ -1,1 +1,1 @@
-ifconfig | grep "ether " | tr -d "ether " | tr -d "\t"
+ifconfig | grep "ether " | cut -c8- | tr -d " "
