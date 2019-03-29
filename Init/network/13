@@ -1,0 +1,3 @@
+host $(ifconfig en0 | grep "inet " | awk '{print $ 2}') | awk '{print $5}'
+
+# host: e4r6p6.21-school.ru

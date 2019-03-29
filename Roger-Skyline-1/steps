@@ -1,0 +1,74 @@
+sudo yum -y install vim
+sudo yum -y install net-tools
+sudo yum -y install policycoreutils-python-2.5-29.el7.x86_64
+sudo yum -y install iptables-services
+sudo yum -y install 2:nmap-6.40-16.el7.x86_64
+sudo yum -y update && sudo yum -y install epel-release && sudo yum -y install fail2ban
+sudo yum -y install mailx
+# sudo yum -y install httpd
+# sudo yum -y install mod_ssl
+sudo yum -y install lynx-2.8.8-0.3.dev15.el7.x86_64
+sudo yum -y install epel-release
+sudo yum -y install nginx
+sudo yum -y install git
+
+1.[+]	Создать диск размера 8 Гб
+2.[+]	Создать один раздел с выделенной памятью в 4.2 Гб:
+			2.1.	fdisk -l
+3.[+]	Создать пользователя, через которого нужно работать с сервером по ssh:
+			3.1.	adduser uvarly -p <password>
+4.[+]	Добавить пользователя в группу sudoers для получения прав на sudo:
+			4.1.	usermod -aG wheel uvarly
+5.[+]	Установить статический ip-адрес:
+			5.1.	vim /etc/sysconfig/network/network-scripts/ifcfg-enp0s3
+				5.1.1.	BOOTPROTO=none
+				5.1.2.	IPADDR=<ip>
+				5.1.3.	PREFIX=30
+				5.1.4.	GATEWAY=<школьный шлюз>
+				5.1.5.	DNS=8.8.8.8
+			5.2.	systemctl restart network
+			5.3.	ping 8.8.8.8 (проверка)
+6.[+]	Сменить дефолтный порт ssh:
+			6.1.	Пробросить порт 2048
+			6.2.	vim /etc/ssh/sshd_config:
+				6.2.1	Port 22 --> Port 2048
+			6.3.	semanage port -a -t ssh_port_t -p tcp 2048
+7.[+]	Сделать подключение исключительно по rsa-ключам:
+			7.1.	ssh-keygen -t rsa
+			7.2.	ssh-copy-id uvarly@localhost -p 2049
+8.[+]	Запретить прямой доступ к root через ssh:
+			8.1.	vim /etc/ssh/sshd_config:
+				8.1.1	PermitRootLogin yes --> PermitRootLogin no
+9.[+]	Настроить фаервол на работу с ssh, http и https:
+			9.1.	(см. /home/uvarly/ifconfig.sh)
+10.[+]	Установить защиту от распространенных DOS атак и сканов поверх всех открытых портов:
+			10.1.	(см. /home/uvarly/iptables.sh)
+			10.2.	(см. /etc/fail2ban/jail.conf)
+11.[+]	Добавить скрипт, который обновит все установленные пакеты и запишет лог в /var/lob/update_packages.log:
+			11.1.	(см. /home/uvarly/update_packages.sh)
+			11.2.	crontab -u root -e
+				11.2.1.	@weekly sh /home/uvarly/update_packages.sh
+12.[+]	Добавить скрипт, который отслеживает изменения в crontab:
+			12.1.	(см. /home/uvarly/monitor.sh)
+			12.2.	crontab -u root -e
+				12.2.1. @daily sh /home/uvarly/monitor.sh
+13.[+]	Отключить все ненужные сервисы:
+			13.1.	systemctl list-units --type service --all | grep 'active'
+			13.2.	systemctl disable <service_name>
+14.[+]	Сделать сервер доступным по его IP:
+			14.1.	Установить nginx
+			14.2.	Настроить сервер
+			14.3.	Profit
+15.[+]	Создать самоподписанный ssl-сертификат и привязать его к сайту
+			15.1.	sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
+			15.2.	sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
+			15.3.	Прописать настройки ssl в /etc/nginx/conf.d/ssl.conf
+16.[+]	Автоматизировать деплой:
+			16.1.	Сервер:
+				16.1.1.	git init --bare
+				16.1.2.	post-receive --> git --work-tree=/var/www/domain.com --git-dir=/home/user/repo/site.git checkout -f
+				16.1.3.	chmod +x post-receive
+			16.2.	Локальная машина:
+				16.2.1.	git init
+				16.2.2.	git remote add live ssh://user@mydomain.com:port/home/user/repo/site.git
+				16.2.3.	... --> git push live master

@@ -1,0 +1,2 @@
+userdel -fr $1
+kill $(ps -aux | grep $1 | awk '{print $2}')

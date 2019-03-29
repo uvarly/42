@@ -1,0 +1,1 @@
+ping -c1 $(ifconfig | grep broadcast | awk '{print $6}') &> /dev/null && arp -a

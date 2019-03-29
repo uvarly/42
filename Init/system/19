@@ -1,0 +1,3 @@
+# Эти сервисы называются демонами (daemons)
+ls -l /etc/rc*.d
+# systemctl list-units --type service

@@ -1,0 +1,15 @@
+FILE1=`cat /home/uvarly/Desktop/checksums`
+
+rm /home/uvarly/Desktop/temp_checksums 2>/dev/null
+
+for file in $(ls $1)
+do
+	md5sum $1/$file >> /home/uvarly/Desktop/temp_checksums
+done
+
+FILE2=`cat /home/uvarly/Desktop/temp_checksums`
+
+if [ "$FILE1" != "$FILE2" ]
+then
+	echo "Files have been modified in $(pwd)" | mail -s "Modification detected" root
+fi

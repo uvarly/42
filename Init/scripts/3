@@ -1,0 +1,10 @@
+# Скрипт берет контрольные суммы всех файлов в текущей директории и отправляет на почту рута
+
+rm /home/uvarly/Desktop/checksums 2>/dev/null
+
+for file in $(ls $1)
+do
+	md5sum $1/$file >> /home/uvarly/Desktop/checksums
+done
+
+echo $(cat /home/uvarly/Desktop/checksums | awk '{print $1}') | mail -s "checksums" root
