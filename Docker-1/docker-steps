@@ -1,0 +1,8 @@
+brew install docker
+brew install docker-machine
+brew install docker-compose
+
+
+Восстановление работы:
+        docker-machine regenerate-certs Char
+        eval $(docker-machine env Char)

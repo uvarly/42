@@ -1,0 +1,10 @@
+# docker pull mysql
+docker run -d --name spawning-pool --restart on-failure -v hatchery:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=Kerrigan -e MYSQL_DATABASE=zerglings mysql
+
+#	-d						-- старт контейнера в фоновом режиме
+#	--name <имя>			-- имя контейнера
+# 	--restart <аргумент>	-- условия рестарта контейнера
+#	-v <volume:path>		-- путь в томе, где будет храниться база данных
+#	-e <>					-- флаг, который меняет значение некоторой переменной среды
+#	MYSQL_ROOT_PASSWORD=<>	-- переменная среды mysql, которая позволяет указать пароль рута
+#	MYSQL_DATABASE=<>		-- переменная среды mysql, которая позволяет указать имя базы данных
