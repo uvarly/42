@@ -35,7 +35,7 @@ sudo yum -y install git
 			6.3.	semanage port -a -t ssh_port_t -p tcp 2048
 7.[+]	Сделать подключение исключительно по rsa-ключам:
 			7.1.	ssh-keygen -t rsa
-			7.2.	ssh-copy-id uvarly@localhost -p 2049
+			7.2.	ssh-copy-id uvarly@localhost -p 2048
 8.[+]	Запретить прямой доступ к root через ssh:
 			8.1.	vim /etc/ssh/sshd_config:
 				8.1.1	PermitRootLogin yes --> PermitRootLogin no

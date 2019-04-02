@@ -1,0 +1,1 @@
+docker service logs --follow $(docker service ps -q engineering-bay -f "name=engineering-bay.1")
