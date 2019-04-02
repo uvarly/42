@@ -1,5 +1,5 @@
-# docker pull debian
-# docker run -it —rm debian /bin/sh
+#	docker pull debian
+#	docker run -it —rm debian /bin/sh
 
 apt update
 apt install build-essential
