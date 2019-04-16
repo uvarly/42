@@ -5,8 +5,6 @@ sudo yum -y install iptables-services
 sudo yum -y install 2:nmap-6.40-16.el7.x86_64
 sudo yum -y update && sudo yum -y install epel-release && sudo yum -y install fail2ban
 sudo yum -y install mailx
-# sudo yum -y install httpd
-# sudo yum -y install mod_ssl
 sudo yum -y install lynx-2.8.8-0.3.dev15.el7.x86_64
 sudo yum -y install epel-release
 sudo yum -y install nginx
@@ -72,3 +70,9 @@ sudo yum -y install git
 				16.2.1.	git init
 				16.2.2.	git remote add live ssh://user@mydomain.com:port/home/user/repo/site.git
 				16.2.3.	... --> git push live master
+
+firewall-cmd --permanent --zone=public --remove-service=dhcpv6-client
+firewall-cmd --permanent --zone=public --add-port=2048/tcp
+firewall-cmd --permanent --zone=public --add-service=http
+firewall-cmd --permanent --zone=public --add-service=https
+sudo tail -f /var/log/fail2ban.log
