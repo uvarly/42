@@ -81,7 +81,7 @@
 		
 				// Call game again
 				main();
-			}, GAME_SPEED)
+			}, GAME_SPEED - ((score + 1) * Math.log10(score + 1) / 10))
 		}
 		
 		/**
