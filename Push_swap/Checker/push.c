@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uvarly <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/19 15:42:15 by uvarly            #+#    #+#             */
-/*   Updated: 2019/04/19 15:42:22 by uvarly           ###   ########.fr       */
+/*   Created: 2019/04/19 16:46:09 by uvarly            #+#    #+#             */
+/*   Updated: 2019/04/19 16:46:10 by uvarly           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/checker.h"
+#include "checker.h"
 
-void	swap(t_list **list)
+void	push(t_list **dst, t_list **src)
 {
-	t_list	*tmp1;
-	t_list	*tmp2;
+	t_list	*temp;
 
-	tmp1 = *list;
-	tmp2 = (*list)->next;
-	if (tmp1 && tmp2)
+	if (*src)
 	{
-		tmp1->next = tmp2->next;
-		tmp2->next = tmp1;
-		*list = tmp2;
+		temp = *src;
+		*src = (*src)->next;
+		temp->next = *dst;
+		*dst = temp;
 	}
-}
-
-void	swap_s(t_list **list1, t_list **list2)
-{
-	swap(list1);
-	swap(list2);
 }

@@ -10,31 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/checker.h"
+#include "checker.h"
 
-void	get_stack(t_list **stack_a, t_list **stack_b, char **av, int ac)
+void	get_stack(t_list **stack_a, char **av, int ac)
 {
 	int	num;
-	int	nul;
 	int	i;
 
 	if (are_arguments_valid(av, ac))
 	{
-		nul = 0;
 		i = 0;
 		while (i < ac)
 		{
 			num = ft_atoi(av[i]);
 			ft_lstappend(stack_a, ft_lstnew(&num, sizeof(int)));
-			ft_lstappend(stack_b, ft_lstnew(&nul, sizeof(int)));
 			i++;
 		}
 	}
-	if (!*stack_a || !*stack_b)
+	if (!*stack_a)
 	{
 		write(2, "Error\n", 6);
 		ft_lstfree(stack_a);
-		ft_lstfree(stack_b);
 		exit(0);
 	}
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/checker.h"
+#include "checker.h"
 
 int	are_arguments_valid(char **av, int ac)
 {
@@ -23,7 +23,7 @@ int	are_arguments_valid(char **av, int ac)
 	{
 		if (!ft_isint(av[ac - 1]) || ft_lstpresent(list, av[ac - 1]))
 		{
-			free_list(&list);
+			ft_lstfree(&list);
 			return (0);
 		}
 		ft_lstappend(&list, ft_lstnew(av[ac - 1], ft_strlen(av[ac - 1])));
