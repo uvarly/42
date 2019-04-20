@@ -3,16 +3,16 @@ CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
 OBJ = checker.o receive.o validate.o swap.o push.o rotate.o
+INC = checker.h
+LIB = ../Libft/libft.a
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(FLAGS) -o $@ -c $(OBJ)
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME) $(LIB)
 
-edit: $(OBJ)
-	@$(CC) -o $(FLAGS) edit $(OBJ)
-
-$(OBJ): checker.h
+$(OBJ): %.o: %.c
+	@$(CC) $(FLAGS) -c $< -I $(INC) -o $@
 
 clean:
 	@rm -f $(OBJ)
