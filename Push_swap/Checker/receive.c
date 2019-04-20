@@ -12,11 +12,35 @@
 
 #include "checker.h"
 
-void	get_stack(t_list **stack_a, char **av, int ac)
+void	get_options(t_flag *options, char **av, int ac)
+{
+	options->verbose = 0;
+	options->colored = 0;
+	if (ac > 1)
+	{
+		options->verbose = ft_strequ(av[0], "-v") ? 1 : 0;
+		options->colored = ft_strequ(av[0], "-c") ? 1 : 0;
+		options->verbose = ft_strequ(av[0], "-vc")
+				&& !options->verbose && !options->colored ? 1 : 0;
+		options->colored = ft_strequ(av[0], "-vc")
+				&& !options->verbose && !options->colored ? 1 : 0;
+		if (ac > 2)
+		{
+			options->verbose = ft_strequ(av[1], "-v")
+					&& !options->verbose ? 1 : 0;
+			options->colored = ft_strequ(av[1], "-c")
+					&& !options->colored ? 1 : 0;
+		}
+	}
+}
+
+void	get_stack(t_list **stack_a, t_list **stack_b, char **av, int ac)
 {
 	int	num;
 	int	i;
 
+	*stack_a = NULL;
+	*stack_b = NULL;
 	if (are_arguments_valid(av, ac))
 	{
 		i = 0;
@@ -40,6 +64,7 @@ void	get_instr(t_list **instr)
 	t_list	*temp;
 	char	*line;
 
+	*instr = NULL;
 	while (get_next_line(0, &line))
 	{
 		temp = ft_lstnew(line, ft_strlen(line));

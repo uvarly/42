@@ -1,12 +1,12 @@
-BIN_1 = checker
-BIN_2 = push_swap
+CH = checker
+PS = push_swap
 
-all: $(BIN_1) $(BIN_2)
+all: $(CH) $(PS)
 
-$(BIN_1):
+$(CH):
 	make -C Checker/
 
-$(BIN_2):
+$(PS):
 	make -C Push_swap/
 
 clean:

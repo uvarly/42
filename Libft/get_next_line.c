@@ -38,9 +38,9 @@ static t_list	*get_node(int fd, t_list **list)
 		return (*list);
 	}
 	temp = *list;
-	while (temp->content_size != fd && temp->next)
+	while ((int)(temp->content_size) != fd && temp->next)
 		temp = temp->next;
-	if (temp->content_size == fd)
+	if ((int)(temp->content_size) == fd)
 		return (temp);
 	if (!(temp->next = ft_lstnew(NULL, 0)))
 		return (NULL);

@@ -27,16 +27,15 @@ OBJ = ft_atoi.o ft_bzero.o ft_isint.o ft_isnum.o ft_isalnum.o ft_isalpha.o ft_is
       ft_strnequ.o ft_strnew.o ft_strnstr.o ft_strrchr.o ft_strsplit.o \
       ft_strstr.o ft_strsub.o ft_strtrim.o ft_sqrt.o ft_tolower.o ft_toupper.o \
 	  get_next_line.o
+INC = libft.h
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar rc libft.a $(OBJ)
 
-edit: $(OBJ)
-	@$(CC) -o $(FLAGS) edit $(OBJ)
-
-$(OBJ): libft.h
+$(OBJ): %.o: %.c
+	@$(CC) $(FLAGS) -c $< -I $(INC) -o $@
 
 clean:
 	@rm -f $(OBJ)

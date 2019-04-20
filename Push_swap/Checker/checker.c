@@ -12,20 +12,8 @@
 
 #include "checker.h"
 
-void	print_list(t_list *list)
-{
-	while (list)
-	{
-		ft_putchar('(');
-		ft_putnbr(*((int *)(list->content)));
-		ft_putchar(')');
-		ft_putstr("->");
-		list = list->next;
-	}
-	ft_putstr("NULL\n");
-}
-
-void	perform_instructions(t_list **stack_a, t_list **stack_b, t_list *instr)
+void	perform_instructions(t_list **stack_a, t_list **stack_b,
+		t_list *instr)
 {
 	while (instr)
 	{
@@ -68,12 +56,9 @@ int		main(int argc, char **argv)
 	t_list	*stack_b;
 	t_list	*instr;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	instr = NULL;
-	get_stack(&stack_a, argv + 1, argc - 1);
+	get_stack(&stack_a, &stack_b, argv + 1, argc - 1);
 	get_instr(&instr);
-	if (argc < 2 || !stack_a || !instr)
+	if (argc < 2 || !stack_a)
 	{
 		write(2, "Error\n", 6);
 		ft_lstfree(&stack_a);
