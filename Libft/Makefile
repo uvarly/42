@@ -16,7 +16,7 @@ FLAGS = -Wall -Wextra -Werror
 
 OBJ = ft_atoi.o ft_bzero.o ft_isint.o ft_isnum.o ft_isalnum.o ft_isalpha.o ft_isascii.o \
       ft_isdigit.o ft_isprint.o ft_itoa.o ft_lstprepend.o ft_lstappend.o ft_lstdel.o \
-      ft_lstdelone.o ft_lstfree.o ft_lstiter.o ft_lstmap.o ft_lstnew.o ft_lstpresent.o ft_lstpushback.o \
+      ft_lstdelone.o ft_lstfree.o ft_lstiter.o ft_lstlen.o ft_lstmap.o ft_lstnew.o ft_lstpresent.o ft_lstpushback.o \
       ft_lstpushfront.o ft_memalloc.o ft_memccpy.o ft_memchr.o ft_memcmp.o \
       ft_memcpy.o ft_memdel.o ft_memmove.o ft_memset.o ft_numlen.o ft_putchar.o \
       ft_putchar_fd.o ft_putendl.o ft_putendl_fd.o ft_putnbr.o ft_putnbr_fd.o \

@@ -23,7 +23,7 @@ void	get_options(t_flag *options, char **av, int ac)
 		options->verbose = ft_strequ(av[0], "-vc")
 				&& !options->verbose && !options->colored ? 1 : 0;
 		options->colored = ft_strequ(av[0], "-vc")
-				&& !options->verbose && !options->colored ? 1 : 0;
+				&& options->verbose && !options->colored ? 1 : 0;
 		if (ac > 2)
 		{
 			options->verbose = ft_strequ(av[1], "-v")

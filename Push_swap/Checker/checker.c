@@ -11,6 +11,32 @@
 /* ************************************************************************** */
 
 #include "checker.h"
+#include <stdio.h>
+
+void	print_stacks(t_list *stack_a, t_list *stack_b)
+{
+	while (stack_a || stack_b)
+	{
+		if (stack_a)
+		{
+			printf("[%2d]", *(int *)(stack_a->content));
+			// ft_putnbr(*(int *)(stack_a->content));
+			stack_a = stack_a->next;
+		}
+		printf("\t");
+		// ft_putstr("\t");
+		if (stack_b)
+		{
+			printf("[%2d]", *(int *)(stack_b->content));
+			// ft_putnbr(*(int *)(stack_b->content));
+			stack_b = stack_b->next;
+		}
+		printf("\n");
+		// ft_putchar('\n');
+	}
+	printf("\n");
+	// ft_putchar('\n');
+}
 
 void	perform_instructions(t_list **stack_a, t_list **stack_b,
 		t_list *instr)
@@ -28,6 +54,7 @@ void	perform_instructions(t_list **stack_a, t_list **stack_b,
 		ft_strequ(instr->content, "rra") ? rrotate(stack_a) : NULL;
 		ft_strequ(instr->content, "rrb") ? rrotate(stack_b) : NULL;
 		ft_strequ(instr->content, "rrr") ? rrotate_r(stack_a, stack_b) : NULL;
+		print_stacks(*stack_a, *stack_b);
 		instr = instr->next;
 	}
 }
@@ -36,16 +63,16 @@ int		is_stack_sorted(t_list *stack_a, t_list *stack_b)
 {
 	int	temp;
 
-	if (stack_a || !stack_b)
+	if (!stack_a || stack_b)
 		return (0);
-	temp = *((int *)(stack_b->content));
-	stack_b = stack_b->next;
-	while (stack_b)
+	temp = *((int *)(stack_a->content));
+	stack_a = stack_a->next;
+	while (stack_a)
 	{
-		if (temp < *((int *)(stack_b->content)))
+		if (temp > *((int *)(stack_a->content)))
 			return (0);
-		temp = *((int *)(stack_b->content));
-		stack_b = stack_b->next;
+		temp = *((int *)(stack_a->content));
+		stack_a = stack_a->next;
 	}
 	return (1);
 }
@@ -66,6 +93,7 @@ int		main(int argc, char **argv)
 		ft_lstfree(&instr);
 		return (0);
 	}
+	print_stacks(stack_a, stack_b);
 	perform_instructions(&stack_a, &stack_b, instr);
 	is_stack_sorted(stack_a, stack_b) ?
 			write(1, "OK\n", 3) : write(1, "KO\n", 3);

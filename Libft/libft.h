@@ -65,6 +65,7 @@ int				ft_sqrt(int nb);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
 
+size_t			ft_lstlen(t_list *list);
 size_t			ft_strlcat(char *dst, const char *app, size_t size);
 size_t			ft_strlen(const char *s);
 
