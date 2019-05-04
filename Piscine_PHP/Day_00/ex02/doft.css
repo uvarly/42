@@ -1,0 +1,191 @@
+body {
+    background-color: rgb(80, 80, 80);
+}
+
+.head {
+    position: relative;
+    width: 75%;
+    margin: 1% auto;
+    background-color: rgb(144, 144, 144);
+    box-shadow: 10px 10px 5px black;
+    border-radius: 10px;
+}
+
+.doft {
+    margin: 0;
+    margin-left: 1%;
+    width: 35%;
+}
+
+.loupe {
+    position: absolute;
+    width: 18%;
+    top: 5%;
+    right: 3%;
+}
+
+.reload {
+    position: absolute;
+    width: 1.75%;
+    right: 0.75%;
+    top: 7.5%;
+}
+
+.close {
+    position: absolute;
+    width: 1.75%;
+    right: 0.75%;
+    top: 75%;
+}
+
+
+/***************************/
+
+.bottom {
+    position: relative;
+    width: 70%;
+    height: 50%;
+    margin-left: 15%;
+    ;
+    margin-top: 2%;
+}
+
+.leftmost_block {
+    background-color: rgb(144, 144, 144);
+    box-shadow: 10px 10px 5px black;
+    border-radius: 10px;
+    position: absolute;
+    width: 10%;
+    padding-bottom: 30%;
+    left: -1%;
+}
+
+.central_block {
+    background-color: rgb(144, 144, 144);
+    box-shadow: 10px 10px 5px black;
+    border-radius: 10px;
+    position: absolute;
+    width: 75%;
+    padding: 1%;
+    right: 11.5%;
+}
+
+.rightmost_block {
+    background-color: rgb(144, 144, 144);
+    box-shadow: 10px 10px 5px black;
+    border-radius: 10px;
+    position: absolute;
+    width: 10%;
+    padding-bottom: 27.5%;
+    right: -1%;
+}
+
+.advance {
+    display: block;
+    width: 60%;
+    margin: auto;
+    margin-top: 10%;
+}
+
+.take {
+    display: block;
+    width: 60%;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+}
+
+.look {
+    display: block;
+    width: 60%;
+    position: absolute;
+    border: 5px solid red;
+    border-radius: 5px;
+    top: 40%;
+    left: 16%;
+}
+
+.use {
+    display: block;
+    width: 60%;
+    position: absolute;
+    top: 60%;
+    left: 20%;
+}
+
+.speak {
+    display: block;
+    width: 60%;
+    position: absolute;
+    top: 80%;
+    left: 20%;
+}
+
+.cluster {
+    width: 100%;
+}
+
+.book {
+    display: block;
+    width: 60%;
+    margin: auto;
+    margin-top: 10%;
+}
+
+.towel {
+    display: block;
+    width: 60%;
+    position: absolute;
+    top: 25%;
+    left: 20%;
+}
+
+.brick {
+    display: block;
+    width: 85%;
+    height: 13.75%;
+    position: absolute;
+    background: url("resources/brick.jpg");
+    background-position: left top;
+    background-repeat: repeat;
+    background-size: 27%;
+    top: 38%;
+    left: 7.5%;
+}
+
+.form {
+    background-color: rgb(167, 251, 150);
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px black;
+    position: relative;
+    width: 25%;
+    padding: 1%;
+    padding-top: 0.1%;
+    margin-right: 50%;
+    font-family: arial;
+    font-size: 16px;
+    top: 725px;
+    left: -75px;
+}
+
+.form p {
+    margin-top: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+}
+
+.large_text {
+    font-size: 200%;
+}
+
+.ordinateur {
+    text-shadow: 5px 5px 5px #ff0000;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.window {
+    margin-bottom: 12.5%;
+}

@@ -4,9 +4,11 @@ PS = push_swap
 all: $(CH) $(PS)
 
 $(CH):
+	make -C Libft/
 	make -C Checker/
 
 $(PS):
+	make -C Libft/
 	make -C Push_swap/
 
 clean:
