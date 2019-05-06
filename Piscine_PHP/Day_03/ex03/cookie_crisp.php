@@ -5,10 +5,11 @@ switch($_GET["action"])
 		setcookie($_GET["name"], $_GET["value"], time() + (86400 * 365));
 		break;
 	case("get"):
-		echo $_COOKIE[$_GET["name"]] . "\n";
+		if ($_COOKIE[$_GET["name"]])
+			echo $_COOKIE[$_GET["name"]] . "\n";
 		break;
 	case("del"):
-		setcookie($_GET["name"], NULL, -1);
+		setcookie($_GET["name"], NULL, time());
 		break;
 }
 ?>
