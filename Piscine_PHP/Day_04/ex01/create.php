@@ -4,9 +4,9 @@ function check_user($user)
     if (file_exists("../private/passwd"))
     {
         $array = unserialize(file_get_contents("../private/passwd"));
-        foreach ($array as $user)
+        for ($i = 0; $i < count($array); $i++)
         {
-            if ($user["login"] === $_POST["login"])
+            if ($array[$i]["login"] === $_POST["login"])
             {
                 echo "ERROR\n";
                 exit();
@@ -22,7 +22,7 @@ if (!file_exists("../private"))
 if ($_POST["login"] == NULL
 	|| $_POST["passwd"] == NULL
 	|| $_POST["submit"] != "OK"
-	|| check_user($user))
+	|| check_user($_POST["login"]))
 {
     echo "ERROR\n";
     exit();

@@ -1,0 +1,54 @@
+header {
+	background-color: bisque;
+	border-radius: 15px;
+	margin-left: 17vw;
+	margin-right: 17vw;
+	margin-bottom: 0px;
+	height: 100px;
+}
+
+.form {
+	float: right;
+	margin-top: 10px;
+}
+
+.logo {
+	margin-top: -10px;
+	margin-left: 15px;
+	display: inline-block;
+}
+
+.category {
+	background-color: bisque;
+	margin: 10px;
+	border-radius: 15px;
+	display: inline-block;
+	padding: 15px;
+}
+
+.content {
+	border: 2px solid deepskyblue;
+	display: inline-block;
+	width: 80vw;
+	height: 60vh;
+	vertical-align: top;
+}
+
+.element {
+	border: 1px solid black;
+	margin: 7px;
+	background-color: pink;
+	vertical-align: auto;
+}
+
+.good-img {
+	width: 120px;
+	margin: 3px;
+	border-radius: 20px;
+	display: inline-block;
+}
+
+.name-description {
+	display: inline-block;
+	margin-top: -5000000px;
+}

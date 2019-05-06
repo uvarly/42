@@ -1,0 +1,17 @@
+.window
+{
+	font-family: sans-serif;
+	text-align: center;
+	font-size: 30px;
+	height: 200px;  
+	width: 200px;
+	position: fixed; top: 50%; left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+.bottom
+{
+	height: 38px;
+	width: 125px;
+	margin: 10px  0 0 32px;
+}
