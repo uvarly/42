@@ -1,0 +1,18 @@
+.map {
+    display: flex;
+}
+
+.maps {
+    height: 1000px;
+    min-width: 1500px;
+    margin: 0 auto;
+    background-image: url('/images/map_back.png');
+    background-size: 50px;
+}
+.map-object {
+    background: azure;
+    position: absolute;
+}
+.obstacle{
+    background-color: black;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calc</title>
+	<script
+			src="http://code.jquery.com/jquery-3.4.1.min.js"
+			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			crossorigin="anonymous">
+	</script>
+	<script>
+        let calc;
+        let left;
+        let right;
+        let op;
+
+        $(document).ready(function()
+        {
+            calc = $('#calc-field');
+            left = $('#left');
+            right = $('#right');
+            op = $('#op');
+            calc.submit(submit);
+            setInterval("alert('Please, use me...')", 30000);
+        });
+
+        function numIsValid(l, r) {
+            return l == parseInt(l, 10) && l >= 0 && r == parseInt(r, 10) && r >= 0;
+        }
+
+        function submit(event)
+        {
+            event.preventDefault();
+            let l = Number(left.val());
+            let r = Number(right.val());
+            if (!numIsValid(left.val(), right.val()))
+            {
+                alert("Error :(");
+                return false;
+            }
+            switch (op.val())
+            {
+                case ('+'):
+                    result(l + r);
+                    break;
+                case ('*'):
+                    result(l * r);
+                    break;
+                case ('/'):
+                    if (r === 0)
+                        result("It’s over 9000!");
+                    else
+                        result(l / r);
+                    break;
+                case ('%'):
+                    if (r === 0)
+                        result("It’s over 9000!");
+                    else
+                        result(l % r);
+                    break;
+                case ('-'):
+                    result(l - r);
+                    break;
+                default:
+                    result("operation not found");
+                    break;
+            }
+        }
+
+        function result(res)
+        {
+            console.log(res);
+            alert(res);
+        }
+	</script>
+</head>
+<body>
+	<div id="calc-field">
+		<form>
+			<input type="text" id="left">
+			<br>
+			<select id="op">
+				<option>+</option>
+				<option>-</option>
+				<option>*</option>
+				<option>/</option>
+				<option>%</option>
+			</select>
+			<br>
+			<input type="text" id="right">
+			<br>
+			<input type="submit" id="sub" value="Try me!">
+		</form>
+	</div>
+</body>
+</html>

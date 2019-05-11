@@ -12,7 +12,7 @@ else
     header("HTTP/1.0 401 Unauthorized");
     header("Date: Tue, 26 Mar 2013 09:42:42 GMT");
     header("WWW-Authenticate: Basic realm=''Member area''");
-    header("Content-Length: 67");
+    header("Content-Length: 72");
     echo "<html><body>That area is accessible for members only</body></html>\n";
 }
 ?>

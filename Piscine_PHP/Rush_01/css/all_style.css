@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+ul, li {
+    list-style: none;
+}
+.content {
+    display: inline-block;
+}
+.debug {
+    display: inline-block;
+    width: 1000px;
+    bottom: 0;
+    background: lightyellow;
+    border-radius: 15px;
+
+}

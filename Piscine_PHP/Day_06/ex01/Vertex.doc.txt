@@ -1,0 +1,18 @@
+<- Vertex ----------------------------------------------------------------------
+The Vertex class handles XYZ coordinates, homogenous coordinate w
+and a color of a point in space.
+
+An instanse is constructed by assigning an array to its class:
+new Vertex( array( "x" => 0.0, "y" => 0.0, "z" => 0.0[, "w" => 1.0[, Color]] ) )
+
+XYZ and W values are converted to floats.
+Behaviour of Color class instances are described in Color.doc.txt
+
+Default XYZ, W and Color values are:
+X,Y,Z = 0.0;
+W = 1.0;
+Color(array("red" => 255, "green" => 255, "blue" => 255)
+
+One can access private values by using __get() and __set() methods.
+Keep in mind that if a property does not exist, the method will return nothing
+---------------------------------------------------------------------- Vertex ->

@@ -1,0 +1,41 @@
+<- Vector ----------------------------------------------------------------------
+The Vector class handles vectors in three dimensions.
+It has three attributes represended by _x, _y and _z attributes
+
+An instance of a Vector class can be build with the following input:
+new Vector( array( "dest" => Vertex[, "orig" => Vertex ]);
+
+If "orig" is omitted, the Vector class will create a Vertex instance
+with default attributes ("x" => 0.0, "y" => 0.0, "z" => 0.0, "w" => 1.0)
+
+All attributes are private, but it is possible to refer to them without
+using any getter method. Call any of the class' attributes DIRECTLY
+as if they were public. When a Vector is created, you won't be able to
+change its values after, hence no setter methods are present
+
+Vector methods:
+
+magnitude() - returns a vector's length
+
+normalize() - returns a new instance of a Vector class containing a normalized
+vector
+
+add( Vector $rhs ) - returns a new instance of a Vector class containing a vector
+which coordinates are equal to a sum of corresponding vector's coordinates
+
+sub( Vector $rhs ) - returns a new instance of a Vector class containing a vector
+which coordinates are equal to a difference of corresponding vector's coordinates
+
+opposite(): returns a new instance of a Vector class containing the opposite Vector
+
+scalarProduct( $k ) - returns a new instance of a Vector class containing a vector
+which coordinates are multiplied by $k value
+
+dotProduct( Vector $rhs )  returns a Vector instance which is a scalar product
+of a current instance and $rhs.
+
+cos( Vector $rhs ) - returns a cos between the current instance and $rhs
+
+Vector crossProduct( Vector $rhs ) - return a cross product (right hand set)
+of the current instance and $rhs
+---------------------------------------------------------------------- Vector ->
