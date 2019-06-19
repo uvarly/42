@@ -1093,8 +1093,18 @@ int	main(void)
 
 	// ft_printf("%w\n", "Breaking news: Man dies after overdosing on viagra. His wife took it very hard.");
 
-	printf("sys: %d\n", printf("%s\n", "абвг"));
-	printf("own: %d\n", ft_printf("%s\n", "абвг"));
+	#include <fcntl.h>
+	#include "../Get_Next_Line/get_next_line.h"
+
+	int fd = open("Makefile", O_RDONLY);
+	char *line;
+	char *str = NULL;
+
+	while (get_next_line(fd, &line))
+	{
+		str = !str ? ft_strdup(line) : ft_strjoin(str, line);
+	}
+	ft_printf("%w\n", str);
 
 	return (0);
 }

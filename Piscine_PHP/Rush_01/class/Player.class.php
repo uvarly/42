@@ -31,7 +31,7 @@ class Player implements IDrawable
         }
     }
 
-    public function addShip($ship)
+    public function addShip(&$ship)
     {
         if ($ship instanceof Ship)
             $this->ships[] = $ship;
@@ -85,10 +85,10 @@ EOF;
     /**
      * @param null $active_ship
      */
-    public function setActiveShip($active_ship)
+    public function setActiveShip(&$active_ship)
     {
-        if ($active_ship instanceof Ship)
-            $active_ship->setState('move');
+        //if ($active_ship instanceof Ship)
+        //    $active_ship->setState('move');
         $this->active_ship = $active_ship;
     }
 
@@ -114,26 +114,30 @@ EOF;
     public function move($num, $move_points, $attack_points, $repair_point)
     {
         $curr_ship = null;
-        if ($move_points + $attack_points + $repair_point == $this->active_ship->getPP()) {
-            foreach ($this->ships as $ship) {
-                if ($ship->getId() == $num) {
-                    $curr_ship = $ship;
-                    break;
-                }
+
+        foreach ($this->ships as $ship) {
+            if ($ship->getId() == $num) {
+                $curr_ship = $ship;
+                break;
             }
-            if ($curr_ship instanceof Ship)
-            {
+        }
+        if ($curr_ship instanceof Ship) {
+            if ($move_points + $attack_points + $repair_point == $curr_ship->getPP()) {
                 $curr_ship->move($move_points);
                 //$curr_ship->attack($attack_points);
                 $curr_ship->repair($repair_point);
             }
-            return (0);
         }
+        return (0);
+
     }
 
     public function finish()
     {
-
+        foreach ($this->ships as $ship) {
+            if ($ship instanceof Ship)
+                $ship->setState('active');
+        }
     }
 
     /**
@@ -166,6 +170,9 @@ EOF;
     public function setState($state)
     {
         $this->state = $state;
+        foreach ($this->ships as $ship) {
+            $ship->setState($state);
+        }
     }
 
     /**

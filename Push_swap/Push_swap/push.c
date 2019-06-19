@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	push(t_list **dst, t_list **src)
+void	push(t_list **dst, t_list **src, t_list **instr, char which_stack)
 {
 	t_list	*temp;
 
@@ -23,4 +23,5 @@ void	push(t_list **dst, t_list **src)
 		temp->next = *dst;
 		*dst = temp;
 	}
+	ft_lstappend(instr, which_stack == 'a' ? ft_lstnew("pa\n", 3) : ft_lstnew("pb\n", 3));
 }

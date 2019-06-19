@@ -10,7 +10,7 @@ ul, li {
     display: inline-block;
 }
 .debug {
-    display: inline-block;
+    display: block;
     width: 1000px;
     bottom: 0;
     background: lightyellow;

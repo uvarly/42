@@ -1,29 +1,28 @@
 .player{
-    height: 300px;
-    width: 300px;
-    margin-top: 10px;
-    margin-right: 10px;
-    right: 0;
-    background-color: rgb(60, 106, 128);
-    border-radius: 10px;
-    margin-bottom: 10px;
-    position: absolute;
-    top:0;
+	height: 300px;
+	width: 300px;
+	margin-top: 10px;
+	margin-right: 10px;
+	right: 0;
+	background-color: rgb(60, 106, 128);
+	border-radius: 10px;
+	margin-bottom: 10px;
+	position: absolute;
+	top:0;
 }
 
 .player img{
-    height: 300px;
-    width: 300px;
+	height: 300px;
+	width: 300px;
 }
 .player p{
-    background-color: wheat;
-    font-size: 40px;
-    text-align: center;
+	background-color: wheat;
+	font-size: 40px;
+	text-align: center;
 
 }
-
 .start input{
-    margin-left: 10px;
-    margin-bottom: 2px;
-    margin-top: 3px;
+	margin-left: 10px;
+	margin-bottom: 2px;
+	margin-top: 3px;
 }

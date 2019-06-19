@@ -1,0 +1,88 @@
+container {
+	position: relative;
+	margin: auto;
+	width: 85em;
+}
+.col{
+	display: inline-block;
+	vertical-align: top;
+}
+input {
+	width: 100%;
+	box-sizing: border-box;
+}
+.box {
+	margin: 1em;
+	position: relative;
+	display: flex;
+	box-sizing: border-box;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+.goodsbox {
+	position: relative;
+	display: block;
+	margin: 1em;
+}
+.good {
+	display: flex;
+	align-self: flex-end;
+}
+.goodimg{
+	width: 15em;
+}
+.goodtxt{
+	border: 1px solid black;
+	margin: auto;
+	width: 15em;
+}
+.dropbtn {
+	background-color: #4CAF50;
+	color: white;
+	padding: 1em;
+	font-size: 1em;
+	border: none;
+	margin: auto;
+	display: inline-block;
+	min-width: 7em;
+	cursor: pointer;
+}
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+.btn {
+	border: none;
+	background-color: inherit;
+	font-size: inherit;
+	cursor: pointer;
+	display: inline-block;
+	min-width: inherit;
+}
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #4CAF50;
+	min-width: 5em;
+	z-index: 1;
+}
+/* Links inside the dropdown */
+.dropdown-content a {
+	color: black;
+	padding: 1em 2em;
+	text-decoration: none;
+	display: block;
+}
+.dropdown-content form {
+	color: black;
+	min-width: 9em;
+	margin: 0 0;
+	display: block;
+}
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content form:hover {background-color: #3e8e41;}
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}

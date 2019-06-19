@@ -12,25 +12,6 @@
 
 #include "push_swap.h"
 
-static void	sort_array(int *array, size_t len)
-{
-	size_t	i;
-	int		temp;
-
-	i = 0;
-	while (i < len - 1)
-	{
-		if (array[i] > array[i + 1])
-		{
-			temp = array[i];
-			array[i] = array[i + 1];
-			array[i + 1] = temp;
-			i = -1;
-		}
-		i++;
-	}
-}
-
 static void	fill_array(t_list *stack, int *array, size_t len)
 {
 	size_t	i;
@@ -42,7 +23,7 @@ static void	fill_array(t_list *stack, int *array, size_t len)
 		stack = stack->next;
 		i++;
 	}
-	sort_array(array, len);
+	ft_sortinttab(array, len);
 }
 
 static void	get_corresponding_value(int *content, int *array)

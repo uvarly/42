@@ -20,7 +20,7 @@ class Obstacle extends MapObject
         $height = $this->getSize()[1];
         return <<<EOF
 <div class="map-object obstacle" id="obj-{$this->getName()}" style="top: {$left}0px; left: {$top}0px; width: {$width}0px; height: {$height}0px;">
-<img src="/images/obstackles/obs.jpg" style="top: {$left}0px; left: {$top}0px; width: {$width}0px; height: {$height}0px;"> </div>
+<img src="/images/obstackles/obs.jpg" style="top: {$left}0px; left: {$top}0px; width: {$width}0px; height: {$height}0px;"></div>
 EOF;
 
     }

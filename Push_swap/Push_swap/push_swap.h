@@ -23,12 +23,15 @@ void	copy_stack(t_list *stack, t_list **stack_a);
 void	get_instructions(t_list *stack, t_list **instr, int order);
 int		get_true_elements(t_list *stack, int **true_elements, int order);
 
-void	swap(t_list **list);
-void	swap_s(t_list **list1, t_list **list2);
-void	push(t_list **dst, t_list **src);
-void	rotate(t_list **list);
-void	rotate_r(t_list **list1, t_list **list2);
-void	rrotate(t_list **list);
-void	rrotate_r(t_list **list1, t_list **list2);
+void	perform_quickest_push(t_list **stack_a, t_list **stack_b, t_list **instr);
+void	reset_stack(t_list **stack_a, t_list **instr);
+
+void	swap(t_list **list, t_list **instr, char which_stack);
+void	swap_s(t_list **list1, t_list **list2, t_list **instr);
+void	push(t_list **dst, t_list **src, t_list **instr, char which_stack);
+void	rotate(t_list **list, t_list **instr, char which_stack);
+void	rotate_r(t_list **list1, t_list **list2, t_list **instr);
+void	rrotate(t_list **list, t_list **instr, char which_stack);
+void	rrotate_r(t_list **list1, t_list **list2, t_list **instr);
 
 #endif

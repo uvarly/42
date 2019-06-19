@@ -29,7 +29,7 @@ class FactoryObj
      * @param $obj
      * @throws Exception
      */
-    public function addObj($obj)
+    public function addObj(&$obj)
     {
         if (is_a($obj, MapObject::class))
             $this->objects[] = $obj;
@@ -62,6 +62,16 @@ class FactoryObj
             }
         }
         return ($ret);
+    }
+
+    public function setShip($id, $ship)
+    {
+        foreach ($this->objects as $key => $object) {
+            if($object instanceof Ship && $object->getId() == $id)
+            {
+                $this->objects[$key] = $ship;
+            }
+        }
     }
 
     public function drawAll()

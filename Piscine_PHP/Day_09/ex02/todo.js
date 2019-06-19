@@ -25,7 +25,8 @@ window.onunload = function ()
     document.cookie = JSON.stringify(newCookie);
 };
 
-function newTodo(){
+function newTodo()
+{
     let todo = prompt("Input new ToDo:", '');
     if (todo !== "")
         addTodo(todo);

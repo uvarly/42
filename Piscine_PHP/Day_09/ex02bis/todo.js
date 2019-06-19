@@ -18,7 +18,7 @@ $(document).ready(function()
 
 $(window).unload(function()
 {
-    let todo = ft_list.children();
+    let todo = ft_list.children;
     let newCookie = [];
     for (let i = 0; i < todo.length; i++)
         newCookie.unshift(todo[i].innerHTML);

@@ -54,7 +54,7 @@ static int	has_false_elements(t_list *stack, int *true_elements, int count)
 	return (0);
 }
 
-static int	is_swap_required(t_list *stack, int count_prev, int order)
+static int	is_swap_required(t_list *stack, t_list **instr, int count_prev, int order)
 {
 	t_list	*stack_a;
 	int		*true_elements;
@@ -63,7 +63,7 @@ static int	is_swap_required(t_list *stack, int count_prev, int order)
 	if (stack && stack->next)
 	{
 		copy_stack(stack, &stack_a);
-		swap(&stack_a);
+		swap(&stack_a, instr, 0);
 		count_curr = get_true_elements(stack_a, &true_elements, order);
 		if (count_curr > count_prev)
 		{
@@ -92,20 +92,20 @@ void		get_instructions(t_list *stack, t_list **instr, int order)
 	count = get_true_elements(stack_a, &true_elements, order);
 	while (has_false_elements(stack_a, true_elements, count))
 	{
-		if (is_swap_required(stack_a, count, order))
+		if (is_swap_required(stack_a, instr, count, order))
 		{
-			swap(&stack_a);
+			swap(&stack_a, instr, 'a');
 			free(true_elements);
 			count = get_true_elements(stack_a, &true_elements, order);
 		}
 		else if (is_false_element(stack_a, true_elements, count))
-			push(&stack_b, &stack_a);
+			push(&stack_b, &stack_a, instr, 'a');
 		else
-			rotate(&stack_a);
+			rotate(&stack_a, instr, 'a');
 	}
 	while (stack_b)
-	{
-	}
+		perform_quickest_push(stack_a, stack_b, instr);
+	reset_stack(stack_a, instr);
 	free(true_elements);
 	ft_lstfree(&stack_a);
 }

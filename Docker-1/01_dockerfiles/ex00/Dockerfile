@@ -6,4 +6,4 @@ RUN		apk update && \
 CMD		["vim"]
 
 #	docker build -t 00 .
-#	docker run --rm 00
+#	docker run --rm -it 00

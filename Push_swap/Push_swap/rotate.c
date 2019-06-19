@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	rotate(t_list **list)
+void	rotate(t_list **list, t_list **instr, char which_stack)
 {
 	t_list	*first;
 	t_list	*last;
@@ -26,16 +26,18 @@ void	rotate(t_list **list)
 		while (last->next)
 			last = last->next;
 		last->next = first;
+		ft_lstappend(instr, which_stack == 'a' ? ft_lstnew("ra\n", 3) : ft_lstnew("rb\n", 3));
 	}
 }
 
-void	rotate_r(t_list **list1, t_list **list2)
+void	rotate_r(t_list **list1, t_list **list2, t_list **instr)
 {
-	rotate(list1);
-	rotate(list2);
+	rotate(list1, instr, 'a');
+	rotate(list2, instr, 'b');
+	ft_lstappend(instr, ft_lstnew("rr\n", 3));
 }
 
-void	rrotate(t_list **list)
+void	rrotate(t_list **list, t_list **instr, char which_stack)
 {
 	t_list	*last;
 	t_list	*second_last;
@@ -49,11 +51,12 @@ void	rrotate(t_list **list)
 		second_last->next = NULL;
 		last->next = *list;
 		*list = last;
+		ft_lstappend(instr, which_stack == 'a' ? ft_lstnew("rra\n", 4) : ft_lstnew("rrb\n", 4));
 	}
 }
 
-void	rrotate_r(t_list **list1, t_list **list2)
+void	rrotate_r(t_list **list1, t_list **list2, t_list **instr)
 {
-	rrotate(list1);
-	rrotate(list2);
+	rrotate(list1, instr, 'a');
+	rrotate(list2, instr, 'b');
 }

@@ -82,7 +82,10 @@ abstract class MapObject implements IDrawable
     {
         $size[0] = intval($size[0]);
         $size[1] = intval($size[1]);
-        $this->_rectangle = [intval($this->_pos[0] - $size[0] / 2), intval($this->_pos[1] - $size[1] / 2)];
+        $this->_rectangle = [
+            'top-left' => ['x' => intval($this->_pos[0] - $size[0] / 2), 'y'=>intval($this->_pos[1] - $size[1] / 2)],
+            'bottom-right' => ['x' => intval($this->_pos[0] + $size[0] / 2), 'y'=>intval($this->_pos[1] + $size[1] / 2)]
+        ];
         $this->_size = $size;
     }
 
@@ -119,7 +122,10 @@ abstract class MapObject implements IDrawable
      */
     public function setPos($pos)
     {
-        $this->_rectangle = [intval($pos[0] - $this->_size[0] / 2), intval($pos[1] - $this->_size[1] / 2)];
+        $this->_rectangle = [
+            'top-left' => ['x' => intval($pos[0] - $this->_size[0] / 2), 'y'=>intval($pos[1] - $this->_size[1] / 2)],
+            'bottom-right' => ['x' => intval($pos[0] + $this->_size[0] / 2), 'y'=>intval($pos[1] + $this->_size[1] / 2)]
+        ];
         $this->_pos = [intval($pos[0]), intval($pos[1])];
     }
 

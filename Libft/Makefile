@@ -15,8 +15,9 @@ CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
 OBJ = ft_atoi.o ft_bzero.o ft_isint.o ft_isnum.o ft_isalnum.o ft_isalpha.o ft_isascii.o \
-      ft_isdigit.o ft_isprint.o ft_itoa.o ft_lstprepend.o ft_lstappend.o ft_lstdel.o \
-      ft_lstdelone.o ft_lstfree.o ft_lstiter.o ft_lstlen.o ft_lstmap.o ft_lstnew.o ft_lstpresent.o ft_lstpushback.o \
+      ft_isdigit.o ft_isprint.o ft_itoa.o ft_lstintmax.o ft_lstintmin.o ft_lstprepend.o \
+      ft_lstappend.o ft_lstdel.o ft_lstdelone.o ft_lstfree.o ft_lstiter.o ft_lstlen.o \
+      ft_lstmap.o ft_lstnew.o ft_lstpresent.o ft_lstpushback.o \
       ft_lstpushfront.o ft_memalloc.o ft_memccpy.o ft_memchr.o ft_memcmp.o \
       ft_memcpy.o ft_memdel.o ft_memmove.o ft_memset.o ft_numlen.o ft_putchar.o \
       ft_putchar_fd.o ft_putendl.o ft_putendl_fd.o ft_putnbr.o ft_putnbr_fd.o \
@@ -27,6 +28,7 @@ OBJ = ft_atoi.o ft_bzero.o ft_isint.o ft_isnum.o ft_isalnum.o ft_isalpha.o ft_is
       ft_strnequ.o ft_strnew.o ft_strnstr.o ft_strrchr.o ft_strsplit.o \
       ft_strstr.o ft_strsub.o ft_strtrim.o ft_sqrt.o ft_tolower.o ft_toupper.o \
 	  get_next_line.o
+
 INC = libft.h
 
 all: $(NAME)
