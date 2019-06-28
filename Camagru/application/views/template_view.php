@@ -7,6 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <?php require_once 'application/views/' . $content_view; ?>
+    <?php require 'application/views/' . $content_view; ?>
 </body>
 </html>

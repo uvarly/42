@@ -2,12 +2,18 @@
 <header></header>
 <main>
     <?php
-        foreach($data as $row)
-            // var_dump($row);
-            echo    $row['ID'] . '<br />' .
-                    $row['Login'] . '<br />' .
-                    $row['Password'] . '<br />' .
-                    $row['Email'] . '<br /><br />';
+    foreach ($data as $post)
+    {
+        echo <<<POST
+        <div>
+            <p>{$post['Login']}</p>
+            <img src=http://192.168.99.100:8080/main/profile_image/{$post['Profile_Image']}><br />
+            <img src=http://192.168.99.100:8080/main/post_image/{$post['Post_Image']}><br />
+            <p>{$post['Message']}</p>
+            <p>{$post['Creation_Date']}</p>
+        <div>
+POST;
+    }
     ?>
 </main>
 <footer></footer>
